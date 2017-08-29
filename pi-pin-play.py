@@ -2,7 +2,6 @@
 # Author: Anders Myren
 # This is a small script for playing audio when a pin is pulled high.
 
-
 import RPi.GPIO as GPIO
 import pygame
 from time import sleep
@@ -26,7 +25,7 @@ def play_audio():
 # Start listening for events
 GPIO.add_event_detect(inputpin, GPIO.RISING)
 
-# Run, check for new status, raise/lower on change, sleep for stability
+# Run, check for new status 
 if __name__ == "__main__":
     while True:
         if GPIO.input(inputpin):
