@@ -1,17 +1,18 @@
 #!/bin/python3
 # Author: Anders Myren
-# This script is for controlling a Venset TV-lift using power from an USB-port as trigger. Add a pulldown resistor between inputpin and common/ground/0V.
+# This is a small script for playing audio when a pin is pulled high.
+
 
 import RPi.GPIO as GPIO
 import pygame
 from time import sleep
 
-# Set input and output pins
-inputpin = 18	# Pin used for triggering lift
+# Setup input pin
+inputpin = 18	# Pin used for triggering
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(inputpin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
-# Define functions raising and lowering TV-lift
+# Define functions
 
 def play_audio():
     print("Playing audio file...")
