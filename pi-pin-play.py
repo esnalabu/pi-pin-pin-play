@@ -2,9 +2,13 @@
 # Author: Anders Myren
 # This is a small script for playing audio when a pin is pulled high.
 
+import os
 import RPi.GPIO as GPIO
 import pygame
 from time import sleep
+
+# Set audio file
+audiofile = (os.path.dirname(os.path.realpath(__file__)) + "/myFile.wav")
 
 # Setup input pin
 inputpin = 18	# Pin used for triggering
@@ -16,7 +20,7 @@ GPIO.setup(inputpin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 def play_audio():
     print("Playing audio file...")
     pygame.mixer.init()
-    pygame.mixer.music.load("myFile.wav")
+    pygame.mixer.music.load(audiofile)
     pygame.mixer.music.play()
     while pygame.mixer.music.get_busy() == True:
         continue
