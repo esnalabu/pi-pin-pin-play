@@ -1,5 +1,5 @@
 ## pi-pin-play.py Play audio on pin high
-This is a small script for playing audio when a pin is pulled high. 
+This is a small script for playing audio when a RPI pin is pulled high. 
 
 ### Dependencies
 * Python 3
