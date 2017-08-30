@@ -23,8 +23,14 @@ def play_audio():
     pygame.mixer.music.load(audiofile)
     pygame.mixer.music.play()
     while pygame.mixer.music.get_busy() == True:
-        continue
+        sleep(3)
+        if GPIO.wait_for_edge(inputpin, GPIO.FALLING):
+            print('Aborting playing audio file!')
+            pygame.mixer.music.stop()
+        else: 
+            continue
     print("Done playing audio file!")
+    sleep(5)
 
 # Start listening for events
 GPIO.add_event_detect(inputpin, GPIO.RISING)
